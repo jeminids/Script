@@ -1,4 +1,3 @@
-
 // Initial
 $('.calculator-input-wrap').hide();
 $('.calculator-result').hide();
@@ -28,26 +27,26 @@ $('.calculator-result-back').click(function () {
 
 // conditions
 
-$('#tc_input').on('input', function() {
+$('#tc_input').on('input', function () {
     var inputValue = $(this).val();
-    if(inputValue) {
+    if (inputValue) {
         $('#button_tc').removeClass('disabled-link');
     } else {
         $('#button_tc').addClass('disabled-link');
     }
-    });
-    
-    // Enter to submit
-    $('input').on('keypress', function(e) {
+});
+
+// Enter to submit
+$('input').on('keypress', function (e) {
     if (e.which == 13) { // Enter key pressed
         if (!$(this).val()) {
-        e.preventDefault(); // Prevent default action of following the link
+            e.preventDefault(); // Prevent default action of following the link
         } else {
-        $(this).closest('.calculator-input-wrap').find('a').click();
+            $(this).closest('.calculator-input-wrap').find('a').click();
         }
     }
-    });      
-    
+});
+
 
 // open 1. Transfer Costs Calculator
 $('#button_tc').click(function () {
