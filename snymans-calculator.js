@@ -24,8 +24,7 @@ $('.calculator-result-back').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
-// conditions
-
+// Chehk conditions
 $('input').on('input', function (e) {
     var inputValue = $(this).val();
     if (!inputValue) {
@@ -34,7 +33,6 @@ $('input').on('input', function (e) {
         $(this).closest('.calculator-input-wrap').find('a').removeClass('disabled');
     }
 });
-
 
 // Enter to submit
 $('input').on('keypress', function (e) {
@@ -47,36 +45,35 @@ $('input').on('keypress', function (e) {
     }
 });
 
-
-// open 1. Transfer Costs Calculator
+// Open 1. Transfer Costs Calculator
 $('#button_tc').click(function () {
     $('#result_tc').show();
     $('#calculator_section').hide();
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
-// open 2. Bond Costs Calculator 
+// Open 2. Bond Costs Calculator 
 $('#button_bc').click(function () {
     $('#result_bc').show();
     $('#calculator_section').hide();
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
-// open 3. Bond Instalments Calculator
+// Open 3. Bond Instalments Calculator
 $('#button_bi').click(function () {
     $('#result_bi').show();
     $('#calculator_section').hide();
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
-// 4, Commission Calculator
+// Open 4. Commission Calculator
 $('#button_cs').click(function () {
     $('#result_cs').show();
     $('#calculator_section').hide();
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
-// funtions 
+// Funtions 
 function formatCurrency(value) {
     return 'R' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
@@ -96,7 +93,6 @@ function formatPercentage(num) {
 
 // 1. Transfer Costs Calculator
 $('#tc_input').on('input', function () {
-
     const tc_input = $(this).val();
 
     // Purchase Price
@@ -194,12 +190,12 @@ $('#tc_input').on('input', function () {
     const total_tc = totals_tc.reduce((total, field) => total + unFormatCurrency(field), 0);
     $('#tc_total').text(formatCurrency(total_tc));
 
-
 });
 
 // 2. Bond Costs Calculator
 $('#bc_input').on('input', function () {
     const bc_input = $(this).val();
+
     // Purchase Price
     if (bc_input <= 0) {
         $('#bc_la').text('0.00');
@@ -313,7 +309,7 @@ $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
     }
 });
 
-// 4, Commission Calculator
+// 4. Commission Calculator
 const cs_vat_percentage = 0.15;
 $('#cs_pp_input, #cs_cp_input').on('input', function () {
     const cs_pp_input = $('#cs_pp_input').val();
