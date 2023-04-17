@@ -1,5 +1,5 @@
 
-// Initial 2
+// Initial 3
 $('.calculator-input-wrap').hide();
 $('.calculator-result').hide();
 
@@ -16,14 +16,14 @@ $('.calculator-title-open').click(function () {
     $calculatorItem.find('.calculator-input-wrap').hide();
 });
 
-// Close result
-$('.calculator-result-back').click(function () {
+ // Close result
+ $('.calculator-result-back').click(function () {
     $('#calculator_section').show();
     $('.calculator-result').hide();
     $('.calculator-input-wrap').hide();
     $('.calculator-header').show();
-    $('.button').addClass('disabled');
-    $('input').val('');
+    $('.calculator-input-wrap .button').addClass('disabled');
+    $('.calculator-input-wrap input').val('');
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
