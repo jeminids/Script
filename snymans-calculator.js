@@ -22,9 +22,11 @@ $('.calculator-result-back').click(function () {
     $('.calculator-result').hide();
     $('.calculator-input-wrap').hide();
     $('.calculator-header').show();
+    $('.button').addClass('disabled');
     $('input').val('');
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
+
 
 // conditions
 
