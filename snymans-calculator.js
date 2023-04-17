@@ -1,5 +1,5 @@
 
-// Initial
+// Initial 2
 $('.calculator-input-wrap').hide();
 $('.calculator-result').hide();
 
