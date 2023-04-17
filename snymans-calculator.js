@@ -1,7 +1,6 @@
 
-// Initial 3
-$('.calculator-input-wrap').hide();
-$('.calculator-result').hide();
+// Initial
+$('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
 $('.calculator-header').click(function () {
@@ -16,17 +15,14 @@ $('.calculator-title-open').click(function () {
     $calculatorItem.find('.calculator-input-wrap').hide();
 });
 
- // Close result
- $('.calculator-result-back').click(function () {
-    $('#calculator_section').show();
-    $('.calculator-result').hide();
-    $('.calculator-input-wrap').hide();
-    $('.calculator-header').show();
+// Close result
+$('.calculator-result-back').click(function () {
+    $('#calculator_section, .calculator-header').show();
+    $('.calculator-result, .calculator-input-wrap').hide();
     $('.calculator-input-wrap .button').addClass('disabled');
     $('.calculator-input-wrap input').val('');
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
-
 
 // conditions
 
