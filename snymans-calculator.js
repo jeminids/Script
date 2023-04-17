@@ -1,3 +1,4 @@
+
 // Initial
 $('.calculator-input-wrap').hide();
 $('.calculator-result').hide();
@@ -27,14 +28,15 @@ $('.calculator-result-back').click(function () {
 
 // conditions
 
-$('#tc_input').on('input', function () {
+$('input').on('input', function (e) {
     var inputValue = $(this).val();
-    if (inputValue) {
-        $('#button_tc').removeClass('disabled-link');
+    if (!inputValue) {
+        $(this).closest('.calculator-input-wrap').find('a').addClass('disabled');
     } else {
-        $('#button_tc').addClass('disabled-link');
+        $(this).closest('.calculator-input-wrap').find('a').removeClass('disabled');
     }
 });
+
 
 // Enter to submit
 $('input').on('keypress', function (e) {
