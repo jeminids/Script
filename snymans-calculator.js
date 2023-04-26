@@ -1,6 +1,3 @@
-
-
-
 // Initial
 $('.calculator-input-wrap, .calculator-result').hide();
 
@@ -28,14 +25,18 @@ $('.calculator-result-back').click(function () {
 
 
 // Chehk conditions
-$('input').on('input', function (e) {
-    var inputValue = $(this).val();
-    if (!inputValue) {
-        $(this).closest('.calculator-input-wrap').find('a').addClass('disabled');
+$('.calculator-input-wrap input').on('input', function () {
+    var inputWraps = $(this).closest('.calculator-input-wrap');
+    var allInputsFilled = inputWraps.find('input').toArray().every(function (input) {
+      return $(input).val() !== '';
+    });
+  
+    if (allInputsFilled) {
+      inputWraps.find('a').removeClass('disabled');
     } else {
-        $(this).closest('.calculator-input-wrap').find('a').removeClass('disabled');
+      inputWraps.find('a').addClass('disabled');
     }
-});
+  });
 
 // Enter to submit
 $('input').on('keypress', function (e) {
