@@ -1,4 +1,6 @@
 
+
+
 // Initial
 $('.calculator-input-wrap, .calculator-result').hide();
 
@@ -24,6 +26,7 @@ $('.calculator-result-back').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });
 
+
 // Chehk conditions
 $('input').on('input', function (e) {
     var inputValue = $(this).val();
@@ -44,6 +47,52 @@ $('input').on('keypress', function (e) {
         }
     }
 });
+
+// Open 1. Transfer Costs Calculator
+$('#button_tc').click(function () {
+    $('#result_tc').show();
+    $('#calculator_section').hide();
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+
+// Open 2. Bond Costs Calculator 
+$('#button_bc').click(function () {
+    $('#result_bc').show();
+    $('#calculator_section').hide();
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+
+// Open 3. Bond Instalments Calculator
+$('#button_bi').click(function () {
+    $('#result_bi').show();
+    $('#calculator_section').hide();
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+
+// Open 4. Commission Calculator
+$('#button_cs').click(function () {
+    $('#result_cs').show();
+    $('#calculator_section').hide();
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+
+// Funtions 
+function formatCurrency(value) {
+    return 'R' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
+function unFormatCurrency(selector) {
+    return parseFloat($(selector).text().replace(/[^0-9.-]+/g, ""));
+}
+function formatYear(num) {
+    if (num > 1) {
+        return num + ' years';
+    } else {
+        return num + ' year';
+    }
+}
+function formatPercentage(num) {
+    return num + '%';
+}
 
 // 1. Transfer Costs Calculator
 $('#tc_input').on('input', function () {
@@ -356,3 +405,4 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
     $('#cs_gppc').text(formatCurrency(parseFloat(cs_pp_input) + parseFloat(cs_total_value) + parseFloat(cs_vat_value)));
 
 });
+
