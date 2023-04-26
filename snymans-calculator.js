@@ -45,52 +45,6 @@ $('input').on('keypress', function (e) {
     }
 });
 
-// Open 1. Transfer Costs Calculator
-$('#button_tc').click(function () {
-    $('#result_tc').show();
-    $('#calculator_section').hide();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-
-// Open 2. Bond Costs Calculator 
-$('#button_bc').click(function () {
-    $('#result_bc').show();
-    $('#calculator_section').hide();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-
-// Open 3. Bond Instalments Calculator
-$('#button_bi').click(function () {
-    $('#result_bi').show();
-    $('#calculator_section').hide();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-
-// Open 4. Commission Calculator
-$('#button_cs').click(function () {
-    $('#result_cs').show();
-    $('#calculator_section').hide();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-
-// Funtions 
-function formatCurrency(value) {
-    return 'R' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-}
-function unFormatCurrency(selector) {
-    return parseFloat($(selector).text().replace(/[^0-9.-]+/g, ""));
-}
-function formatYear(num) {
-    if (num > 1) {
-        return num + ' years';
-    } else {
-        return num + ' year';
-    }
-}
-function formatPercentage(num) {
-    return num + '%';
-}
-
 // 1. Transfer Costs Calculator
 $('#tc_input').on('input', function () {
     const tc_input = $(this).val();
@@ -114,28 +68,28 @@ $('#tc_input').on('input', function () {
         const threshold = 6110;
         const increment = 975;
         const incrementThreshold = 50000;
-        const ctf = threshold + Math.ceil((tc_input - 100000) / incrementThreshold) * increment;
+        const ctf = (tc_input - 100000) / incrementThreshold * increment + threshold;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 500000 && tc_input <= 1000000) {
         const threshold = 13900;
         const increment = 1885;
         const incrementThreshold = 100000;
-        const ctf = threshold + Math.ceil((tc_input - 500000) / incrementThreshold) * increment;
+        const ctf = (tc_input - 500000) / incrementThreshold * increment + threshold;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 1000000 && tc_input <= 5000000) {
         const threshold = 23315;
         const increment = 1885;
         const incrementThreshold = 200000;
-        const ctf = threshold + Math.ceil((tc_input - 1000000) / incrementThreshold) * increment;
+        const ctf = (tc_input - 1000000) / incrementThreshold * increment + threshold;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 5000000) {
         const threshold = 60980;
         const increment = 4750;
         const incrementThreshold = 1000000;
-        const ctf = threshold + Math.ceil((tc_input - 5000000) / incrementThreshold) * increment;
+        const ctf = (tc_input - 5000000) / incrementThreshold * increment + threshold;
         $('#tc_ctf').text(formatCurrency(ctf));
     }
 
@@ -144,12 +98,41 @@ $('#tc_input').on('input', function () {
         $('#tc_td').text('0.00');
     } else if (tc_input <= 1100000) {
         $('#tc_td').text('0.00');
+
     } else if (tc_input > 1100000 && tc_input <= 1512500) {
         const percentage = 0.03;
-        const result = tc_input * percentage;
+        const threshold = 1100000;
+        const result = (tc_input - threshold) * percentage;
+        $('#tc_td').text(formatCurrency(result));
+
+    } else if (tc_input > 1512501 && tc_input <= 2117500) {
+        const percentage = 0.06;
+        const threshold = 1512500;
+        const incrementThreshold = 12375;
+        const result = (tc_input - threshold) * percentage + incrementThreshold;
+        $('#tc_td').text(formatCurrency(result));
+
+    } else if (tc_input > 2117501 && tc_input <= 2722500) {
+        const percentage = 0.08;
+        const threshold = 2117500;
+        const incrementThreshold = 48675;
+        const result = (tc_input - threshold) * percentage + incrementThreshold;
+        $('#tc_td').text(formatCurrency(result));
+
+    } else if (tc_input > 2722501 && tc_input <= 12100000) {
+        const percentage = 0.11;
+        const threshold = 2722500;
+        const incrementThreshold = 97075;
+        const result = (tc_input - threshold) * percentage + incrementThreshold;
+        $('#tc_td').text(formatCurrency(result));
+
+    } else if (tc_input > 12100001) {
+        const percentage = 0.13;
+        const threshold = 12100000;
+        const incrementThreshold = 1128600;
+        const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
     }
-
     // Deeds Office Fee
     const dofFees = [
         { max: 100000, fee: 45 },
@@ -208,35 +191,35 @@ $('#bc_input').on('input', function () {
         $('#bc_ctf').text('0.00');
 
     } else if (bc_input <= 100000) {
-        const threshold = 5710;
+        const threshold = 6110;
         $('#bc_ctf').text(formatCurrency(threshold));
 
     } else if (bc_input > 100000 && bc_input <= 500000) {
-        const threshold = 5710;
-        const increment = 910;
+        const threshold = 6110;
+        const increment = 975;
         const incrementThreshold = 50000;
-        const ctf = threshold + Math.ceil((bc_input - 100000) / incrementThreshold) * increment;
+        const ctf = (bc_input - 100000) / incrementThreshold * increment + threshold;
         $('#bc_ctf').text(formatCurrency(ctf));
 
     } else if (bc_input > 500000 && bc_input <= 1000000) {
-        const threshold = 12990;
-        const increment = 1760;
+        const threshold = 13900;
+        const increment = 1885;
         const incrementThreshold = 100000;
-        const ctf = threshold + Math.ceil((bc_input - 500000) / incrementThreshold) * increment;
+        const ctf = (bc_input - 500000) / incrementThreshold * increment + threshold;
         $('#bc_ctf').text(formatCurrency(ctf));
 
     } else if (bc_input > 1000000 && bc_input <= 5000000) {
-        const threshold = 21790;
-        const increment = 1760;
+        const threshold = 23315;
+        const increment = 1885;
         const incrementThreshold = 200000;
-        const ctf = threshold + Math.ceil((bc_input - 1000000) / incrementThreshold) * increment;
+        const ctf = (bc_input - 1000000) / incrementThreshold * increment + threshold;
         $('#bc_ctf').text(formatCurrency(ctf));
 
     } else if (bc_input > 5000000) {
-        const threshold = 56990;
-        const increment = 4440;
+        const threshold = 60980;
+        const increment = 4750;
         const incrementThreshold = 1000000;
-        const ctf = threshold + Math.ceil((bc_input - 5000000) / incrementThreshold) * increment;
+        const ctf = (bc_input - 5000000) / incrementThreshold * increment + threshold;
         $('#bc_ctf').text(formatCurrency(ctf));
     }
 
@@ -283,9 +266,9 @@ $('#bc_input').on('input', function () {
 // 3. Bond Instalments Calculator
 
 $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
-    const bi_la_input = $('#bi_la_input').val();
-    const bi_ltiy_input = $('#bi_ltiy_input').val();
-    const bi_ir_input = $('#bi_ir_input').val();
+    const bi_la_input = parseFloat($('#bi_la_input').val());
+    const bi_ltiy_input = parseFloat($('#bi_ltiy_input').val());
+    const bi_ir_input = parseFloat($('#bi_ir_input').val());
 
     // Loan Amount
     if (bi_la_input <= 0) {
@@ -306,6 +289,34 @@ $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
         $('#bi_lt').text('0.00');
     } else {
         $('#bi_lt').text(formatYear(bi_ltiy_input));
+    }
+
+    // Monthly Payment            
+    const bi_nper = bi_ltiy_input * 12;
+    const bi_rate = bi_ir_input / 100 / 12;
+
+    const bi_monthly_payment = (bi_la_input * bi_rate) / (1 - Math.pow(1 + bi_rate, -bi_nper));
+
+    if (bi_la_input <= 0) {
+        $('#bi_mi').text('0.00');
+    } else {
+        $('#bi_mi').text(formatCurrency(bi_monthly_payment));
+    }
+
+    // Total Payment            
+    const bi_tp_value = bi_monthly_payment * bi_nper;
+    if (bi_la_input <= 0) {
+        $('#bi_tp').text('0.00');
+    } else {
+        $('#bi_tp').text(formatCurrency(bi_tp_value));
+    }
+
+    // Total Interest                
+    const bi_ti_value = bi_tp_value - bi_la_input;
+    if (bi_la_input <= 0) {
+        $('#bi_ti').text('0.00');
+    } else {
+        $('#bi_ti').text(formatCurrency(bi_ti_value));
     }
 });
 
