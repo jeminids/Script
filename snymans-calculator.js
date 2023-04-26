@@ -118,7 +118,7 @@ $('#tc_input').on('input', function () {
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 500000 && tc_input <= 1000000) {
-        const threshold = 13990;
+        const threshold = 13900;
         const increment = 1885;
         const incrementThreshold = 100000;
         const ctf = threshold + Math.ceil((tc_input - 500000) / incrementThreshold) * increment;
