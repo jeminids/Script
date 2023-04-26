@@ -107,33 +107,33 @@ $('#tc_input').on('input', function () {
         $('#tc_ctf').text('0.00');
 
     } else if (tc_input <= 100000) {
-        const threshold = 5710;
+        const threshold = 6110;
         $('#tc_ctf').text(formatCurrency(threshold));
 
     } else if (tc_input > 100000 && tc_input <= 500000) {
-        const threshold = 5710;
-        const increment = 910;
+        const threshold = 6110;
+        const increment = 975;
         const incrementThreshold = 50000;
         const ctf = threshold + Math.ceil((tc_input - 100000) / incrementThreshold) * increment;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 500000 && tc_input <= 1000000) {
-        const threshold = 12990;
-        const increment = 1760;
+        const threshold = 13990;
+        const increment = 1885;
         const incrementThreshold = 100000;
         const ctf = threshold + Math.ceil((tc_input - 500000) / incrementThreshold) * increment;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 1000000 && tc_input <= 5000000) {
-        const threshold = 21790;
-        const increment = 1760;
+        const threshold = 23315;
+        const increment = 1885;
         const incrementThreshold = 200000;
         const ctf = threshold + Math.ceil((tc_input - 1000000) / incrementThreshold) * increment;
         $('#tc_ctf').text(formatCurrency(ctf));
 
     } else if (tc_input > 5000000) {
-        const threshold = 56990;
-        const increment = 4440;
+        const threshold = 60980;
+        const increment = 4750;
         const incrementThreshold = 1000000;
         const ctf = threshold + Math.ceil((tc_input - 5000000) / incrementThreshold) * increment;
         $('#tc_ctf').text(formatCurrency(ctf));
