@@ -114,6 +114,7 @@ $('#tc_input').on('input', function () {
     } else if (tc_input <= 100000) {
         const threshold = 6110;
         $('#tc_ctf').text(formatCurrency(threshold));
+        $('#result_tc_pp').val(tc_input);
 
     } else if (tc_input > 100000 && tc_input <= 500000) {
         const threshold = 6110;
@@ -406,4 +407,12 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
     // Gross Price plus commission            
     $('#cs_gppc').text(formatCurrency(parseFloat(cs_pp_input) + parseFloat(cs_total_value) + parseFloat(cs_vat_value)));
 
+});
+
+// 5. Result 
+$('#tc_input').on('input', function () {
+    var elements = ['#tc_pp', '#tc_ctf', '#tc_td', '#tc_dof', '#tc_vat', '#tc_total'];
+    elements.forEach(function (element) {
+        $(`#result_${element.substring(1)}`).val(unFormatCurrency(element));
+    });
 });
