@@ -28,15 +28,15 @@ $('.calculator-result-back').click(function () {
 $('.calculator-input-wrap input').on('input', function () {
     var inputWraps = $(this).closest('.calculator-input-wrap');
     var allInputsFilled = inputWraps.find('input').toArray().every(function (input) {
-      return $(input).val() !== '';
+        return $(input).val() !== '';
     });
-  
+
     if (allInputsFilled) {
-      inputWraps.find('a').removeClass('disabled');
+        inputWraps.find('a').removeClass('disabled');
     } else {
-      inputWraps.find('a').addClass('disabled');
+        inputWraps.find('a').addClass('disabled');
     }
-  });
+});
 
 // Enter to submit
 $('input').on('keypress', function (e) {
@@ -104,6 +104,7 @@ $('#tc_input').on('input', function () {
         $('#tc_pp').text('0.00');
     } else {
         $('#tc_pp').text(formatCurrency(tc_input));
+        $('#result_tc_pp').val(tc_input);
     }
 
     // Attorney Fees
@@ -406,4 +407,3 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
     $('#cs_gppc').text(formatCurrency(parseFloat(cs_pp_input) + parseFloat(cs_total_value) + parseFloat(cs_vat_value)));
 
 });
-
