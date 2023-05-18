@@ -1,4 +1,4 @@
-// Initial a
+// Initial b
 $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
@@ -413,6 +413,7 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
 $('#tc_input').on('input', function () {
     var elements = ['#tc_pp', '#tc_ctf', '#tc_td', '#tc_dof', '#tc_vat', '#tc_total'];
     elements.forEach(function (element) {
-        $(`#result_${element.substring(1)}`).val(unFormatCurrency(element));
+      $(`#result_${element.substring(1)}`).val($(element).text());
     });
-});
+  });
+  
