@@ -1,4 +1,4 @@
-// Initial d
+// Initial e
 $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
@@ -428,7 +428,7 @@ $('#bc_input').on('input', function () {
 });
 
 // 5c. Bond Instalments
-$('#bi_input').on('input', function () {
+$('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
     var elements = ['#bi_la', '#bi_ir', '#bi_lt', '#bi_tp', '#bi_ti', '#bi_mi'];
     elements.forEach(function (element) {
         $(`#result_${element.substring(1)}`).val($(element).text());
