@@ -1,4 +1,4 @@
-// Initial e
+// Initial
 $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
@@ -434,3 +434,11 @@ $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
         $(`#result_${element.substring(1)}`).val($(element).text());
     });
 }); 
+
+// 5d. Commission
+$('#cs_pp_input, #cs_cp_input').on('input', function () {
+    var elements = ['#cs_pp', '#cs_cp', '#cs_vat', '#cs_gplc','#cs_total', '#cs_gppc'];
+    elements.forEach(function (element) {
+        $(`#result_${element.substring(1)}`).val($(element).text());
+    });
+});
