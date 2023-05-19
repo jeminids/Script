@@ -1,4 +1,4 @@
-// Initial b
+// Initial c
 $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
@@ -412,19 +412,25 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
 // 5. Result 
 
 // 5A. Transfer Cost
-
 $('#tc_input').on('input', function () {
     var elements = ['#tc_pp', '#tc_ctf', '#tc_td', '#tc_dof', '#tc_vat', '#tc_total'];
     elements.forEach(function (element) {
-      $(`#result_${element.substring(1)}`).val($(element).text());
+        $(`#result_${element.substring(1)}`).val($(element).text());
     });
-  });
+});
 
-  // 5B. Bond Cost
-  
-  $('#bc_input').on('input', function () {
+// 5B. Bond Cost
+$('#bc_input').on('input', function () {
     var elements = ['#bc_la', '#bc_ctf', '#bc_dof', '#bc_vat', '#bc_total'];
     elements.forEach(function (element) {
-      $(`#result_${element.substring(1)}`).val($(element).text());
+        $(`#result_${element.substring(1)}`).val($(element).text());
     });
-  }); 
+});
+
+// 5c. Bond Instalments
+$('#bi_input').on('input', function () {
+    var elements = ['#bi_la', '#bi_ir', '#bi_lt', '#bi_tp', '#bi_ti', '#bi_mi',];
+    elements.forEach(function (element) {
+        $(`#result_${element.substring(1)}`).val($(element).text());
+    });
+}); 
