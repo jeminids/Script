@@ -410,10 +410,21 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
 });
 
 // 5. Result 
+
+// 5A. Transfer Cost
+
 $('#tc_input').on('input', function () {
     var elements = ['#tc_pp', '#tc_ctf', '#tc_td', '#tc_dof', '#tc_vat', '#tc_total'];
     elements.forEach(function (element) {
       $(`#result_${element.substring(1)}`).val($(element).text());
     });
   });
+
+  // 5B. Bond Cost
   
+  $('#bc_input').on('input', function () {
+    var elements = ['#bc_la', '#tc_ctf', '#tc_dof', '#tc_vat', '#tc_total'];
+    elements.forEach(function (element) {
+      $(`#result_${element.substring(1)}`).val($(element).text());
+    });
+  }); 
