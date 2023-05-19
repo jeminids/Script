@@ -423,7 +423,7 @@ $('#tc_input').on('input', function () {
   // 5B. Bond Cost
   
   $('#bc_input').on('input', function () {
-    var elements = ['#bc_la', '#tc_ctf', '#tc_dof', '#tc_vat', '#tc_total'];
+    var elements = ['#bc_la', '#bc_ctf', '#bc_dof', '#bc_vat', '#bc_total'];
     elements.forEach(function (element) {
       $(`#result_${element.substring(1)}`).val($(element).text());
     });
