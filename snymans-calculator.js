@@ -1,4 +1,4 @@
-// Initial
+// Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
