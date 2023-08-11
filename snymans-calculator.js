@@ -1,3 +1,4 @@
+// v.2.1
 // Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
@@ -97,55 +98,74 @@ function formatPercentage(num) {
 
 // 1. Transfer Costs Calculator
 $('#tc_input').on('input', function () {
-    const tc_input = $(this).val();
+    const tc_input = parseFloat($(this).val());
 
     // Purchase Price
     if (tc_input <= 0) {
         $('#tc_pp').text('0.00');
     } else {
         $('#tc_pp').text(formatCurrency(tc_input));
-        $('#result_tc_pp').val(tc_input);
     }
 
-    // Attorney Fees
-    if (tc_input <= 0) {
-        $('#tc_ctf').text('0.00');
+    // Conveyancing Tariff Fee
+    const ctf_ranges = [
+        { min: 0, max: 100000, base_fee: 6110 },
+        { min: 100001, max: 150000, base_fee: 6110, increment_fee: 975, increment_treshold: 50000 },
+        { min: 150001, max: 200000, base_fee: 7085, increment_fee: 975, increment_treshold: 50000 },
+        { min: 200001, max: 250000, base_fee: 8060, increment_fee: 975, increment_treshold: 50000 },
+        { min: 250001, max: 300000, base_fee: 9035, increment_fee: 975, increment_treshold: 50000 },
+        { min: 300001, max: 350000, base_fee: 10010, increment_fee: 975, increment_treshold: 50000 },
+        { min: 350001, max: 400000, base_fee: 10985, increment_fee: 975, increment_treshold: 50000 },
+        { min: 400001, max: 450000, base_fee: 11960, increment_fee: 975, increment_treshold: 50000 },
+        { min: 450001, max: 500000, base_fee: 12935, increment_fee: 975, increment_treshold: 50000 },
+        { min: 500001, max: 600000, base_fee: 13910, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 600001, max: 700000, base_fee: 15795, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 700001, max: 800000, base_fee: 17680, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 800001, max: 900000, base_fee: 19565, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 900001, max: 1000000, base_fee: 21450, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 1000001, max: 1200000, base_fee: 23335, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1200001, max: 1400000, base_fee: 25220, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1400001, max: 1600000, base_fee: 27105, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1600001, max: 1800000, base_fee: 28990, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1800001, max: 2000000, base_fee: 30875, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2000001, max: 2200000, base_fee: 32760, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2200001, max: 2400000, base_fee: 34645, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2400001, max: 2600000, base_fee: 36530, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2600001, max: 2800000, base_fee: 38415, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2800001, max: 3000000, base_fee: 40300, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3000001, max: 3200000, base_fee: 42185, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3200001, max: 3400000, base_fee: 44070, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3400001, max: 3600000, base_fee: 45955, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3600001, max: 3800000, base_fee: 47840, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3800001, max: 4000000, base_fee: 49725, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4000001, max: 4200000, base_fee: 51610, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4200001, max: 4400000, base_fee: 53495, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4400001, max: 4600000, base_fee: 55380, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4600001, max: 4800000, base_fee: 57265, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4800001, max: 5000000, base_fee: 59150, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 5000001, max: Infinity, base_fee: 61035, increment_fee: 4750, increment_treshold: 1000000 }
+    ];
 
-    } else if (tc_input <= 100000) {
-        const threshold = 6110;
-        $('#tc_ctf').text(formatCurrency(threshold));
-        $('#result_tc_pp').val(tc_input);
 
-    } else if (tc_input > 100000 && tc_input <= 500000) {
-        const threshold = 6110;
-        const increment = 975;
-        const incrementThreshold = 50000;
-        const ctf = (tc_input - 100000) / incrementThreshold * increment + threshold;
-        $('#tc_ctf').text(formatCurrency(ctf));
+    for (const feeRange of ctf_ranges) {
+        if (tc_input >= feeRange.min && tc_input <= feeRange.max) {
+            if (feeRange.increment_fee) {
+                const balance = Math.floor((tc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
 
-    } else if (tc_input > 500000 && tc_input <= 1000000) {
-        const threshold = 13900;
-        const increment = 1885;
-        const incrementThreshold = 100000;
-        const ctf = (tc_input - 500000) / incrementThreshold * increment + threshold;
-        $('#tc_ctf').text(formatCurrency(ctf));
+                ctf_total = balance < 1 ? feeRange.base_fee : feeRange.base_fee + (balance * feeRange.increment_fee);
 
-    } else if (tc_input > 1000000 && tc_input <= 5000000) {
-        const threshold = 23315;
-        const increment = 1885;
-        const incrementThreshold = 200000;
-        const ctf = (tc_input - 1000000) / incrementThreshold * increment + threshold;
-        $('#tc_ctf').text(formatCurrency(ctf));
-
-    } else if (tc_input > 5000000) {
-        const threshold = 60980;
-        const increment = 4750;
-        const incrementThreshold = 1000000;
-        const ctf = (tc_input - 5000000) / incrementThreshold * increment + threshold;
-        $('#tc_ctf').text(formatCurrency(ctf));
+            } else {
+                ctf_total = feeRange.base_fee;
+            }
+            break;
+        }
     }
+
+    $('#tc_ctf').text(formatCurrency(ctf_total));
+
 
     // Transfer Duty
+
     if (tc_input <= 0) {
         $('#tc_td').text('0.00');
     } else if (tc_input <= 1100000) {
@@ -185,6 +205,7 @@ $('#tc_input').on('input', function () {
         const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
     }
+
     // Deeds Office Fee
     const dofFees = [
         { max: 100000, fee: 45 },
@@ -229,7 +250,7 @@ $('#tc_input').on('input', function () {
 
 // 2. Bond Costs Calculator
 $('#bc_input').on('input', function () {
-    const bc_input = $(this).val();
+    const bc_input = parseFloat($(this).val());
 
     // Purchase Price
     if (bc_input <= 0) {
@@ -238,42 +259,60 @@ $('#bc_input').on('input', function () {
         $('#bc_la').text(formatCurrency(bc_input));
     }
 
-    // Attorney Fees
-    if (bc_input <= 0) {
-        $('#bc_ctf').text('0.00');
+    // Conveyancing Tariff Fee
+    const ctf_ranges = [
+        { min: 0, max: 100000, base_fee: 6110 },
+        { min: 100001, max: 150000, base_fee: 6110, increment_fee: 975, increment_treshold: 50000 },
+        { min: 150001, max: 200000, base_fee: 7085, increment_fee: 975, increment_treshold: 50000 },
+        { min: 200001, max: 250000, base_fee: 8060, increment_fee: 975, increment_treshold: 50000 },
+        { min: 250001, max: 300000, base_fee: 9035, increment_fee: 975, increment_treshold: 50000 },
+        { min: 300001, max: 350000, base_fee: 10010, increment_fee: 975, increment_treshold: 50000 },
+        { min: 350001, max: 400000, base_fee: 10985, increment_fee: 975, increment_treshold: 50000 },
+        { min: 400001, max: 450000, base_fee: 11960, increment_fee: 975, increment_treshold: 50000 },
+        { min: 450001, max: 500000, base_fee: 12935, increment_fee: 975, increment_treshold: 50000 },
+        { min: 500001, max: 600000, base_fee: 13910, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 600001, max: 700000, base_fee: 15795, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 700001, max: 800000, base_fee: 17680, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 800001, max: 900000, base_fee: 19565, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 900001, max: 1000000, base_fee: 21450, increment_fee: 1885, increment_treshold: 100000 },
+        { min: 1000001, max: 1200000, base_fee: 23335, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1200001, max: 1400000, base_fee: 25220, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1400001, max: 1600000, base_fee: 27105, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1600001, max: 1800000, base_fee: 28990, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 1800001, max: 2000000, base_fee: 30875, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2000001, max: 2200000, base_fee: 32760, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2200001, max: 2400000, base_fee: 34645, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2400001, max: 2600000, base_fee: 36530, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2600001, max: 2800000, base_fee: 38415, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 2800001, max: 3000000, base_fee: 40300, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3000001, max: 3200000, base_fee: 42185, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3200001, max: 3400000, base_fee: 44070, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3400001, max: 3600000, base_fee: 45955, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3600001, max: 3800000, base_fee: 47840, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 3800001, max: 4000000, base_fee: 49725, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4000001, max: 4200000, base_fee: 51610, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4200001, max: 4400000, base_fee: 53495, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4400001, max: 4600000, base_fee: 55380, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4600001, max: 4800000, base_fee: 57265, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 4800001, max: 5000000, base_fee: 59150, increment_fee: 1885, increment_treshold: 200000 },
+        { min: 5000001, max: Infinity, base_fee: 61035, increment_fee: 4750, increment_treshold: 1000000 }
+    ];
 
-    } else if (bc_input <= 100000) {
-        const threshold = 6110;
-        $('#bc_ctf').text(formatCurrency(threshold));
+    for (const feeRange of ctf_ranges) {
+        if (bc_input >= feeRange.min && bc_input <= feeRange.max) {
+            if (feeRange.increment_fee) {
+                const balance = Math.floor((bc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
 
-    } else if (bc_input > 100000 && bc_input <= 500000) {
-        const threshold = 6110;
-        const increment = 975;
-        const incrementThreshold = 50000;
-        const ctf = (bc_input - 100000) / incrementThreshold * increment + threshold;
-        $('#bc_ctf').text(formatCurrency(ctf));
+                ctf_total = balance < 1 ? feeRange.base_fee : feeRange.base_fee + (balance * feeRange.increment_fee);
 
-    } else if (bc_input > 500000 && bc_input <= 1000000) {
-        const threshold = 13900;
-        const increment = 1885;
-        const incrementThreshold = 100000;
-        const ctf = (bc_input - 500000) / incrementThreshold * increment + threshold;
-        $('#bc_ctf').text(formatCurrency(ctf));
-
-    } else if (bc_input > 1000000 && bc_input <= 5000000) {
-        const threshold = 23315;
-        const increment = 1885;
-        const incrementThreshold = 200000;
-        const ctf = (bc_input - 1000000) / incrementThreshold * increment + threshold;
-        $('#bc_ctf').text(formatCurrency(ctf));
-
-    } else if (bc_input > 5000000) {
-        const threshold = 60980;
-        const increment = 4750;
-        const incrementThreshold = 1000000;
-        const ctf = (bc_input - 5000000) / incrementThreshold * increment + threshold;
-        $('#bc_ctf').text(formatCurrency(ctf));
+            } else {
+                ctf_total = feeRange.base_fee;
+            }
+            break;
+        }
     }
+
+    $('#bc_ctf').text(formatCurrency(ctf_total));
 
     // Deeds Office Fee
     const dofFees = [
@@ -442,3 +481,5 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
         $(`#result_${element.substring(1)}`).val($(element).text());
     });
 });
+
+
