@@ -1,4 +1,4 @@
-// v.2.1
+// v.2.1.1
 // Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
@@ -150,7 +150,7 @@ $('#tc_input').on('input', function () {
     for (const feeRange of ctf_ranges) {
         if (tc_input >= feeRange.min && tc_input <= feeRange.max) {
             if (feeRange.increment_fee) {
-                const balance = Math.floor((tc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
+                const balance = Math.ceil((tc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
 
                 ctf_total = balance < 1 ? feeRange.base_fee : feeRange.base_fee + (balance * feeRange.increment_fee);
 
@@ -301,7 +301,7 @@ $('#bc_input').on('input', function () {
     for (const feeRange of ctf_ranges) {
         if (bc_input >= feeRange.min && bc_input <= feeRange.max) {
             if (feeRange.increment_fee) {
-                const balance = Math.floor((bc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
+                const balance = Math.ceil((bc_input - (feeRange.min - 1)) / feeRange.increment_treshold);
 
                 ctf_total = balance < 1 ? feeRange.base_fee : feeRange.base_fee + (balance * feeRange.increment_fee);
 
