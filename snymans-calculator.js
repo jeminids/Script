@@ -1,4 +1,4 @@
-// v.2.1.1
+// v.2.2
 // Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
