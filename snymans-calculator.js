@@ -1,4 +1,4 @@
-// v.2.3
+// v.3.0
 // Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
@@ -208,20 +208,20 @@ $('#tc_input').on('input', function () {
 
     // Deeds Office Fee
     const dofFees = [
-        { max: 100000, fee: 45 },
-        { max: 200000, fee: 101 },
-        { max: 300000, fee: 642 },
-        { max: 600000, fee: 800 },
-        { max: 800000, fee: 1126 },
-        { max: 1000000, fee: 1293 },
-        { max: 2000000, fee: 1453 },
-        { max: 4000000, fee: 2014 },
-        { max: 6000000, fee: 2443 },
-        { max: 8000000, fee: 2909 },
-        { max: 10000000, fee: 3401 },
-        { max: 15000000, fee: 4048 },
-        { max: 20000000, fee: 4863 },
-        { max: Infinity, fee: 6477 },
+        { max: 100000, fee: 47 },
+        { max: 200000, fee: 107 },
+        { max: 300000, fee: 682 },
+        { max: 600000, fee: 850 },
+        { max: 800000, fee: 1196 },
+        { max: 1000000, fee: 1374 },
+        { max: 2000000, fee: 1544 },
+        { max: 4000000, fee: 2140 },
+        { max: 6000000, fee: 2596 },
+        { max: 8000000, fee: 3092 },
+        { max: 10000000, fee: 3615 },
+        { max: 15000000, fee: 4303 },
+        { max: 20000000, fee: 5169 },
+        { max: Infinity, fee: 6885 },
     ];
 
     let dof = 0;
@@ -316,20 +316,20 @@ $('#bc_input').on('input', function () {
 
     // Deeds Office Fee
     const dofFees = [
-        { max: 150000, fee: 496 },
-        { max: 300000, fee: 642 },
-        { max: 600000, fee: 800 },
-        { max: 800000, fee: 1126 },
-        { max: 1000000, fee: 1293 },
-        { max: 2000000, fee: 1453 },
-        { max: 4000000, fee: 2014 },
-        { max: 6000000, fee: 2443 },
-        { max: 8000000, fee: 2909 },
-        { max: 10000000, fee: 3401 },
-        { max: 15000000, fee: 4048 },
-        { max: 20000000, fee: 4863 },
-        { max: 30000000, fee: 5667 },
-        { max: Infinity, fee: 8098 },
+        { max: 150000, fee: 527 },
+        { max: 300000, fee: 682 },
+        { max: 600000, fee: 850 },
+        { max: 800000, fee: 1196 },
+        { max: 1000000, fee: 1374 },
+        { max: 2000000, fee: 1544 },
+        { max: 4000000, fee: 2140 },
+        { max: 6000000, fee: 2596 },
+        { max: 8000000, fee: 3092 },
+        { max: 10000000, fee: 3615 },
+        { max: 15000000, fee: 4303 },
+        { max: 20000000, fee: 5169 },
+        { max: 30000000, fee: 6024 },
+        { max: Infinity, fee: 8608 },
     ];
 
     let dof = 0;
