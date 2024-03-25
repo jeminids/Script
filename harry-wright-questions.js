@@ -191,6 +191,7 @@ const swiper4 = new Swiper('[slider="4"]', {
     autoHeight: true,
     slidesPerView: 1,
     spaceBetween: 110,
+    allowTouchMove: false,
     pagination: {
     el: ".swiper-pagination",
     type: "progressbar",
