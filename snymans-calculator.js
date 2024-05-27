@@ -221,7 +221,8 @@ $('#tc_input').on('input', function () {
         { max: 10000000, fee: 3615 },
         { max: 15000000, fee: 4303 },
         { max: 20000000, fee: 5169 },
-        { max: Infinity, fee: 6885 },
+        { max: 30000000, fee: 6885 },
+        { max: Infinity, fee: 8608 },
     ];
 
     let dof = 0;
