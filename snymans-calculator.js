@@ -143,7 +143,7 @@ $('#tc_input').on('input', function () {
         { min: 4400000, max: 4600000, base_fee: 58305, increment_fee: 1985, increment_treshold: 200000 },
         { min: 4600000, max: 4800000, base_fee: 60290, increment_fee: 1985, increment_treshold: 200000 },
         { min: 4800000, max: 5000000, base_fee: 62275, increment_fee: 1985, increment_treshold: 200000 },
-        { min: 5000000, max: Infinity, base_fee: 64260, increment_fee: 4750, increment_treshold: 1000000 }
+        { min: 5000000, max: Infinity, base_fee: 64260, increment_fee: 5000, increment_treshold: 1000000 }
     ];
 
 
