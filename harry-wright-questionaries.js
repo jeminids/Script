@@ -1,4 +1,4 @@
-// v3.0
+// v3.1
 $(document).ready(function () {
     // slider related conf. 4 questionaries
     const swiper4 = new Swiper('[slider="4"]', {
@@ -49,8 +49,8 @@ $(document).ready(function () {
             });
         });
     }
-    updateSlides(     
-        ['#q1a', ['#q1', '#q2', '#q3', '#q4', '#beginner-1-advanced']],        
+    updateSlides(
+        ['#q1a', ['#q1', '#q2', '#q3', '#q4', '#beginner-1-advanced']],
         ['#q1b', ['#q1', '#q5', '#q6', '#q7', '#beginner-1-advanced']],
         ['#q1c', ['#q1', '#q8', '#q9', '#q10', '#beginner-1-advanced']],
         ['#q1d', ['#q1', '#q11', '#q12', '#q13', '#q14', '#q14', '#beginner-1-advanced']],
@@ -62,7 +62,7 @@ $(document).ready(function () {
         ['#q5a', ['#q6', '#q7', '#beginner-1-non-swimmerbeginner-1-advancedpreschool-advanced']],
         ['#q5b, #q6b', ['#new-preschool']],
         ['#q6a', ['#q7', '#preschool-advanced']],
-        ['#q7a', ['#q9','#preschool-advanced']],
+        ['#q7a', ['#q9', '#preschool-advanced']],
         ['#q7b', ['#existing-preschool']],
         ['#q8a, #q8b', ['#q10', '#beginner-1-non-swimmer']],
         ['#q10a', ['#beginner-1-non-swimmer']],
