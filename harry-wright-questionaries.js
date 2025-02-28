@@ -1,4 +1,4 @@
-// v4.1
+// v4.2
 $(document).ready(function () {
     // slider related conf. 4 questionaries
     const swiper4 = new Swiper('[slider="4"]', {
