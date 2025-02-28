@@ -1,4 +1,4 @@
-// v4.0
+// v4.1
 $(document).ready(function () {
     // slider related conf. 4 questionaries
     const swiper4 = new Swiper('[slider="4"]', {
@@ -74,11 +74,11 @@ $(document).ready(function () {
         ['#q8a, #q8b', ['#q10', '#beginner-1-non-swimmer']],
         ['#q8d', ['#competitive-programme']],
 
-        ['#q9a', ['#beginner-1-swimmer']],
+        ['#q9a', ['#beginner-1']],
         ['#q9b', ['#preschool-advanced']],
 
         ['#q10a', ['#beginner-1-non-swimmer']],
-        ['#q10b', ['#beginner-1-swimmer']],
+        ['#q10b', ['#beginner-1']],
         ['#q10c', ['#beginner-1-advanced']],
         ['#q10d', ['#beginner-2']],
         ['#q10e', ['#beginner-2-advanced']],
