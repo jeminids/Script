@@ -1,4 +1,4 @@
-// v4.2
+// v4.3
 $(document).ready(function () {
     // slider related conf. 4 questionaries
     const swiper4 = new Swiper('[slider="4"]', {
@@ -104,6 +104,27 @@ $(document).ready(function () {
         ['#q15b', ['#adult-competitive']],
     );
 
+    // result page logic
+    $('[learn-more]').on('click', function (e) {
+        e.preventDefault();
+        const href = $(this).attr('data-href').split('#')[0].split('?')[0];
+        const currentUrl = window.location.pathname.split('#')[0].split('?')[0];
+        if (href === currentUrl) {
+            // result on same page
+            $('[popup-close]').trigger('click');
+            const targetId = $(this).attr('data-href').split('#')[1];
+            var section = $(`[level_item="${targetId}"]`);
+            section.find('[accordion="trigger"]').click();
+
+            setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: $(`[level_item="${targetId}"]`).offset().top
+                }, 2000);
+            }, 500);
+        } else {
+            window.location.href = $(this).attr('data-href');
+        }
+    });
 
     // end
 });
