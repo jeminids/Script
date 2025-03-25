@@ -1,4 +1,4 @@
-// v.05. effective 1 april 2025
+// v.5.0 effective 1 april 2025
 // Initial State
 $('.calculator-input-wrap, .calculator-result').hide();
 
