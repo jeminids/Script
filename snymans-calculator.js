@@ -209,7 +209,7 @@ $('#tc_input').on('input', function () {
 
     // Deeds Office Fee
     const dofFees = [
-        { max: 100000, fee: 47 },
+        { max: 100000, fee: 50 },
         { max: 200000, fee: 114 },
         { max: 300000, fee: 727 },
         { max: 600000, fee: 906 },
@@ -425,7 +425,7 @@ $('#cs_pp_input, #cs_cp_input').on('input', function () {
         $('#cs_pp').text(formatCurrency(cs_pp_input));
     }
 
-    //Commission percentage
+    // Commission percentage
     if (cs_cp_input <= 0) {
         $('#cs_cp').text('0.00');
     } else {
