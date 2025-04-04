@@ -147,7 +147,6 @@ $('#tc_input').on('input', function () {
         { min: 5000000, max: Infinity, base_fee: 64260, increment_fee: 5000, increment_treshold: 1000000 }
     ];
 
-
     for (const feeRange of ctf_ranges) {
         if (tc_input >= feeRange.min && tc_input <= feeRange.max) {
             if (feeRange.increment_fee) {
@@ -164,45 +163,43 @@ $('#tc_input').on('input', function () {
 
     $('#tc_ctf').text(formatCurrency(ctf_total));
 
-
     // Transfer Duty
-
     if (tc_input <= 0) {
         $('#tc_td').text('0.00');
-    } else if (tc_input <= 1100000) {
+    } else if (tc_input <= 1210000) {
         $('#tc_td').text('0.00');
 
-    } else if (tc_input > 1100000 && tc_input <= 1512500) {
+    } else if (tc_input > 1210000.0 && tc_input <= 1663800) {
         const percentage = 0.03;
-        const threshold = 1100000;
+        const threshold = 1210000;
         const result = (tc_input - threshold) * percentage;
         $('#tc_td').text(formatCurrency(result));
 
-    } else if (tc_input > 1512501 && tc_input <= 2117500) {
+    } else if (tc_input > 1663800.01 && tc_input <= 2329300) {
+        const incrementThreshold = 13614;
         const percentage = 0.06;
-        const threshold = 1512500;
-        const incrementThreshold = 12375;
+        const threshold = 1663800;
         const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
 
-    } else if (tc_input > 2117501 && tc_input <= 2722500) {
+    } else if (tc_input > 2329000.01 && tc_input <= 2994800) {
+        const incrementThreshold = 53544;
         const percentage = 0.08;
-        const threshold = 2117500;
-        const incrementThreshold = 48675;
+        const threshold = 2329000;
         const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
 
-    } else if (tc_input > 2722501 && tc_input <= 12100000) {
+    } else if (tc_input > 2994800.01 && tc_input <= 13310000) {
+        const incrementThreshold = 106784;
         const percentage = 0.11;
-        const threshold = 2722500;
-        const incrementThreshold = 97075;
+        const threshold = 2994800;
         const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
 
-    } else if (tc_input > 12100001) {
+    } else if (tc_input > 13310000.01) {
+        const incrementThreshold = 1241456;
         const percentage = 0.13;
-        const threshold = 12100000;
-        const incrementThreshold = 1128600;
+        const threshold = 13310000;
         const result = (tc_input - threshold) * percentage + incrementThreshold;
         $('#tc_td').text(formatCurrency(result));
     }
@@ -237,7 +234,7 @@ $('#tc_input').on('input', function () {
     $('#tc_dof').text(dof_value);
 
     // VAT
-    const vat_percentage = 0.15
+    const vat_percentage = 0.155
     const tc_ctf_value = unFormatCurrency('#tc_ctf');
     const tc_vat = 'R' + (tc_ctf_value * vat_percentage).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     $('#tc_vat').text(tc_vat);
@@ -343,7 +340,7 @@ $('#bc_input').on('input', function () {
     $('#bc_dof').text(formatCurrency(dof));
 
     // VAT
-    const vat_percentage = 0.15
+    const vat_percentage = 0.155
     const bc_ctf_value = unFormatCurrency('#bc_ctf');
     const bc_vat = 'R' + (bc_ctf_value * vat_percentage).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     $('#bc_vat').text(bc_vat);
@@ -413,7 +410,7 @@ $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
 });
 
 // 4. Commission Calculator
-const cs_vat_percentage = 0.15;
+const cs_vat_percentage = 0.155;
 $('#cs_pp_input, #cs_cp_input').on('input', function () {
     const cs_pp_input = $('#cs_pp_input').val();
     const cs_cp_input = $('#cs_cp_input').val();
