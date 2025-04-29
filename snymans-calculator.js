@@ -234,7 +234,7 @@ $('#tc_input').on('input', function () {
     $('#tc_dof').text(dof_value);
 
     // VAT
-    const vat_percentage = 0.155
+    const vat_percentage = 0.15
     const tc_ctf_value = unFormatCurrency('#tc_ctf');
     const tc_vat = 'R' + (tc_ctf_value * vat_percentage).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     $('#tc_vat').text(tc_vat);
@@ -340,7 +340,7 @@ $('#bc_input').on('input', function () {
     $('#bc_dof').text(formatCurrency(dof));
 
     // VAT
-    const vat_percentage = 0.155
+    const vat_percentage = 0.15
     const bc_ctf_value = unFormatCurrency('#bc_ctf');
     const bc_vat = 'R' + (bc_ctf_value * vat_percentage).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     $('#bc_vat').text(bc_vat);
@@ -410,7 +410,7 @@ $('#bi_la_input, #bi_ltiy_input, #bi_ir_input').on('input', function () {
 });
 
 // 4. Commission Calculator
-const cs_vat_percentage = 0.155;
+const cs_vat_percentage = 0.15;
 $('#cs_pp_input, #cs_cp_input').on('input', function () {
     const cs_pp_input = $('#cs_pp_input').val();
     const cs_cp_input = $('#cs_cp_input').val();
