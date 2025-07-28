@@ -1,7 +1,7 @@
-// v6.0 effective 1 August 2025
+// v6.1 effective 1 August 2025
 
 // Initial State
-$('.calculator-input-wrap, .calculator-result').hide();
+ $('.calculator-input-wrap, .calculator-result').hide();
 
 // Open input
 $('.calculator-header').click(function () {
@@ -114,37 +114,37 @@ $('#tc_input').on('input', function () {
         { min: 100000, max: 150000, base_fee: 6640, increment_fee: 1060, increment_treshold: 50000 },
         { min: 150000, max: 200000, base_fee: 7700, increment_fee: 1060, increment_treshold: 50000 },
         { min: 200000, max: 250000, base_fee: 8760, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 250000, max: 300000, base_fee: 10880, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 300000, max: 350000, base_fee: 11940, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 350000, max: 400000, base_fee: 13000, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 400000, max: 450000, base_fee: 14060, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 450000, max: 500000, base_fee: 15120, increment_fee: 1060, increment_treshold: 50000 },
-        { min: 700000, max: 800000, base_fee: 21270, increment_fee: 2050, increment_treshold: 100000 },
-        { min: 600000, max: 700000, base_fee: 19220, increment_fee: 2050, increment_treshold: 100000 },
-        { min: 500000, max: 600000, base_fee: 17170, increment_fee: 2050, increment_treshold: 100000 },
-        { min: 800000, max: 900000, base_fee: 23320, increment_fee: 2050, increment_treshold: 100000 },
-        { min: 900000, max: 1000000, base_fee: 25370, increment_fee: 2050, increment_treshold: 100000 },
-        { min: 1000000, max: 1200000, base_fee: 27420, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 1200000, max: 1400000, base_fee: 29470, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 1400000, max: 1600000, base_fee: 31520, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 1600000, max: 1800000, base_fee: 33570, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 1800000, max: 2000000, base_fee: 35620, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 2000000, max: 2200000, base_fee: 37670, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 2200000, max: 2400000, base_fee: 39720, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 2400000, max: 2600000, base_fee: 41770, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 2600000, max: 2800000, base_fee: 43820, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 2800000, max: 3000000, base_fee: 45870, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 3000000, max: 3200000, base_fee: 47920, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 3200000, max: 3400000, base_fee: 49970, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 3400000, max: 3600000, base_fee: 52020, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 3600000, max: 3800000, base_fee: 54070, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 3800000, max: 4000000, base_fee: 56120, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 4000000, max: 4200000, base_fee: 58170, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 4200000, max: 4400000, base_fee: 60220, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 4400000, max: 4600000, base_fee: 62270, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 4600000, max: 4800000, base_fee: 64320, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 4800000, max: 5000000, base_fee: 66370, increment_fee: 2050, increment_treshold: 200000 },
-        { min: 5000000, max: Infinity, base_fee: 71530, increment_fee: 5160, increment_treshold: 1000000 }
+        { min: 250000, max: 300000, base_fee: 9820, increment_fee: 1060, increment_treshold: 50000 },
+        { min: 300000, max: 350000, base_fee: 10880, increment_fee: 1060, increment_treshold: 50000 },
+        { min: 350000, max: 400000, base_fee: 11940, increment_fee: 1060, increment_treshold: 50000 },
+        { min: 400000, max: 450000, base_fee: 13000, increment_fee: 1060, increment_treshold: 50000 },
+        { min: 450000, max: 500000, base_fee: 14060, increment_fee: 1060, increment_treshold: 50000 },
+        { min: 700000, max: 800000, base_fee: 15120, increment_fee: 2050, increment_treshold: 100000 },
+        { min: 600000, max: 700000, base_fee: 17170, increment_fee: 2050, increment_treshold: 100000 },
+        { min: 500000, max: 600000, base_fee: 19220, increment_fee: 2050, increment_treshold: 100000 },
+        { min: 800000, max: 900000, base_fee: 21270, increment_fee: 2050, increment_treshold: 100000 },
+        { min: 900000, max: 1000000, base_fee: 23320, increment_fee: 2050, increment_treshold: 100000 },
+        { min: 1000000, max: 1200000, base_fee: 25370, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 1200000, max: 1400000, base_fee: 27420, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 1400000, max: 1600000, base_fee: 29470, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 1600000, max: 1800000, base_fee: 31520, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 1800000, max: 2000000, base_fee: 33570, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 2000000, max: 2200000, base_fee: 35620, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 2200000, max: 2400000, base_fee: 37670, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 2400000, max: 2600000, base_fee: 39720, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 2600000, max: 2800000, base_fee: 41770, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 2800000, max: 3000000, base_fee: 43820, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 3000000, max: 3200000, base_fee: 45870, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 3200000, max: 3400000, base_fee: 47920, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 3400000, max: 3600000, base_fee: 49970, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 3600000, max: 3800000, base_fee: 52020, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 3800000, max: 4000000, base_fee: 54070, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 4000000, max: 4200000, base_fee: 56120, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 4200000, max: 4400000, base_fee: 58170, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 4400000, max: 4600000, base_fee: 60220, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 4600000, max: 4800000, base_fee: 62270, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 4800000, max: 5000000, base_fee: 64320, increment_fee: 2050, increment_treshold: 200000 },
+        { min: 5000000, max: Infinity, base_fee: 66370, increment_fee: 5160, increment_treshold: 1000000 }
     ];
 
     for (const feeRange of ctf_ranges) {
